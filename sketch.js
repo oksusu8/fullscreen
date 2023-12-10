@@ -1,28 +1,22 @@
+let isFullScreen = false;
+
 function setup() {
-  //createCanvas(360, 640);
   createCanvas(windowWidth, windowHeight);
+
+  // 버튼 생성
+  let fullscreenButton = createButton('Enter Fullscreen');
+  fullscreenButton.mousePressed(toggleFullscreen);
 }
 
 function draw() {
-  background(100);
-  fill(255, 255, 0);
-  ellipse(width/2, height/2, 150, 150);
+  background(220);
+  fill(0);
+  textSize(32);
+  textAlign(CENTER, CENTER);
+  text("Hello, p5.js!", width / 2, height / 2);
 }
 
-function touchStarted () {
-  if (!fullscreen()) {
-    fullscreen(true);
-  }
+function toggleFullscreen() {
+  // iOS Safari에서는 사용자의 제스처에 의해 풀스크린 모드로 진입
+  // 사용자에게 안내를 제공하는 버튼은 여기에 추가 가능
 }
-
-/* full screening will change the size of the canvas */
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
-
-/* prevents the mobile browser from processing some default
- * touch events, like swiping left for "back" or scrolling the page.
- */
-document.ontouchmove = function(event) {
-    event.preventDefault();
-};
