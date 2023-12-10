@@ -1,16 +1,15 @@
-function setup() { 
-  createCanvas(windowWidth, windowHeight);
-} 
+function setup() {
+  createCanvas(360, 640);
+}
 
-function draw() { 
-  background(220);
-  rectMode(CENTER);
-  rect(width / 2, height / 2, 200, 100);
+function draw() {
+  background(100);
+  fill(255, 255, 0);
+  ellipse(width/2, height/2, 150, 150);
 }
 
 function touchStarted () {
-  var fs = fullscreen();
-  if (!fs) {
+  if (!fullscreen()) {
     fullscreen(true);
   }
 }
@@ -21,8 +20,7 @@ function windowResized() {
 }
 
 /* prevents the mobile browser from processing some default
- * touch events, like swiping left for "back" or scrolling
- * the page.
+ * touch events, like swiping left for "back" or scrolling the page.
  */
 document.ontouchmove = function(event) {
     event.preventDefault();
